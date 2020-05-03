@@ -1,7 +1,9 @@
-// Load variables from `.env` as soon as possible
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV || 'development'}`
-})
+const yaml = require('js-yaml')
+const fs = require('fs')
+
+const SETTINGS = yaml.safeLoad(
+  fs.readFileSync(`settings.${process.env.NODE_ENV || 'development'}.yaml`, 'utf8')
+)
 
 const clientConfig = require('./client-config')
 
@@ -15,7 +17,7 @@ module.exports = {
       resolve: 'gatsby-source-sanity',
       options: {
         ...clientConfig.sanity,
-        token: process.env.SANITY_READ_TOKEN,
+        token: SETTINGS.SANITY_READ_TOKEN,
         watchMode: !isProd,
         overlayDrafts: !isProd
       }

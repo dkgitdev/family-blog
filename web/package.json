@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "sanity-gatsby-blog-web",
+  "name": "family-blog-web",
   "version": "1.0.3",
-  "author": "Sanity <hello@sanity.io>",
+  "author": "Dmitry Arkhipenko <dk.dev@pm.me>",
   "scripts": {
     "build": "gatsby build",
     "clean-cache": "gatsby clean",
@@ -14,8 +14,7 @@
   "devDependencies": {
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/image-url": "^0.140.18",
-    "date-fns": "^1.30.1",
-    "dotenv": "^8.0.0",
+    "date-fns": "^2.12.0",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-react": "^7.0.2",
@@ -24,10 +23,11 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-standard": "^4.0.0",
-    "gatsby": "^2.9.2",
+    "gatsby": "^2.21.9",
     "gatsby-plugin-postcss": "^2.0.7",
     "gatsby-plugin-react-helmet": "^3.2.4",
     "gatsby-source-sanity": "^4.0.3",
+    "js-yaml": "^3.13.1",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.6.0",
     "prettier-eslint-cli": "^4.7.1",
