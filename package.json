@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "sanity-gatsby-blog",
+  "name": "family-blog",
   "version": "1.0.13",
   "scripts": {
     "build": "lerna run build --parallel",

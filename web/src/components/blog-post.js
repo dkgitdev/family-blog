@@ -1,4 +1,5 @@
-import {format, distanceInWords, differenceInDays} from 'date-fns'
+import {parseISO, formatDistance, format, differenceInDays} from 'date-fns'
+import {ru} from 'date-fns/locale'
 import React from 'react'
 import {buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
@@ -34,15 +35,15 @@ function BlogPost (props) {
           <aside className={styles.metaContent}>
             {publishedAt && (
               <div className={styles.publishedAt}>
-                {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), 'MMMM Do, YYYY')}
+                {differenceInDays(parseISO(publishedAt), new Date()) > 3
+                  ? formatDistance(parseISO(publishedAt), new Date())
+                  : format(parseISO(publishedAt), 'd MMMM yyyy', {locale: ru})}
               </div>
             )}
-            {authors && <AuthorList items={authors} title='Authors' />}
+            {authors && <AuthorList items={authors} title='Авторы' />}
             {categories && (
               <div className={styles.categories}>
-                <h3 className={styles.categoriesHeadline}>Categories</h3>
+                <h3 className={styles.categoriesHeadline}>Категории</h3>
                 <ul>
                   {categories.map(category => (
                     <li key={category._id}>{category.title}</li>

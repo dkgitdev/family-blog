@@ -1,4 +1,5 @@
-import {format} from 'date-fns'
+import {parseISO, format} from 'date-fns'
+import {ru} from 'date-fns/locale'
 import {Link} from 'gatsby'
 import React from 'react'
 import {buildImageObj, cn, getBlogUrl} from '../lib/helpers'
@@ -33,7 +34,9 @@ function BlogPostPreview (props) {
             <PortableText blocks={props._rawExcerpt} />
           </div>
         )}
-        <div className={styles.date}>{format(props.publishedAt, 'MMMM Do, YYYY')}</div>
+        <div className={styles.date}>
+          {format(parseISO(props.publishedAt), 'd MMMM yyyy', {locale: ru})}
+        </div>
       </div>
     </Link>
   )
