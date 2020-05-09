@@ -42,7 +42,7 @@ function BlogPostPreview (props) {
             shortname='blog-dkdev-ru'
             config={
               {
-                url: postUrl,
+                url: `${window.location.origin}${postUrl}`,
                 identifier: props.slug.current,
                 title: props.title
               }

@@ -40,9 +40,9 @@ function BlogPost (props) {
                     shortname='blog-dkdev-ru'
                     config={
                       {
-                        url: location.pathname,
+                        url: `${window.location.origin}${location.pathname}`,
                         identifier: slug.current,
-                        title: styles.title,
+                        title: title,
                         language: 'ru_RU'
                       }
                     }
