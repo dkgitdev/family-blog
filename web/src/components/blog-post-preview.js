@@ -8,12 +8,14 @@ import PortableText from './portableText'
 
 import styles from './blog-post-preview.module.css'
 import {responsiveTitle3} from './typography.module.css'
+import {CommentCount} from "disqus-react";
 
 function BlogPostPreview (props) {
+  const postUrl = getBlogUrl(props.publishedAt, props.slug.current);
   return (
     <Link
       className={props.isInList ? styles.inList : styles.inGrid}
-      to={getBlogUrl(props.publishedAt, props.slug.current)}
+      to={postUrl}
     >
       <div className={styles.leadMediaThumb}>
         {props.mainImage && props.mainImage.asset && (
@@ -34,8 +36,20 @@ function BlogPostPreview (props) {
             <PortableText blocks={props._rawExcerpt} />
           </div>
         )}
-        <div className={styles.date}>
+        <div className={styles.footer}>
           {format(parseISO(props.publishedAt), 'd MMMM yyyy', {locale: ru})}
+          <CommentCount
+            shortname='blog-dkdev-ru'
+            config={
+              {
+                url: postUrl,
+                identifier: props.slug.current,
+                title: props.title
+              }
+            }
+          >
+            Комментарии
+          </CommentCount>
         </div>
       </div>
     </Link>
