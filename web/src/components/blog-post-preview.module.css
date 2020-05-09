@@ -64,7 +64,15 @@
   }
 }
 
-.date {
+.footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-small-size);
+  line-height: var(--font-small-line-height);
+  color: var(--color-gray);
+}
+
+.comment-count {
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);
   color: var(--color-gray);

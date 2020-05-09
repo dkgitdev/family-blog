@@ -36,6 +36,7 @@
     "react-helmet": "^5.2.1"
   },
   "dependencies": {
+    "disqus-react": "^1.0.8",
     "gatsby-image": "^2.0.41"
   }
 }
