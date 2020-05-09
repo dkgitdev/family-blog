@@ -40,22 +40,24 @@ function BlogPostPreview (props) {
         )}
         <div className={styles.footer}>
           {format(parseISO(props.publishedAt), 'd MMMM yyyy', {locale: ru})}
-          <Location>
-            {({location}) => (
-              <CommentCount
-                shortname='blog-dkdev-ru'
-                config={
-                  {
-                    url: `${location.origin}${postUrl}`,
-                    identifier: props.slug.current,
-                    title: props.title
+          <Link to={`${postUrl}#disqus_thread`} className={styles.root}>
+            <Location>
+              {({location}) => (
+                <CommentCount
+                  shortname='blog-dkdev-ru'
+                  config={
+                    {
+                      url: `${location.origin}${postUrl}`,
+                      identifier: props.slug.current,
+                      title: props.title
+                    }
                   }
-                }
-              >
-                Комментарии
-              </CommentCount>
-            )}
-          </Location>
+                >
+                  Комментарии
+                </CommentCount>
+              )}
+            </Location>
+          </Link>
         </div>
       </div>
     </Link>
