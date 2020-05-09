@@ -2,7 +2,7 @@ import {parseISO, formatDistance, format, differenceInDays} from 'date-fns'
 import {ru} from 'date-fns/locale'
 import React from 'react'
 import {Location} from '@reach/router'
-import {DiscussionEmbed} from 'disqus-react';
+import {DiscussionEmbed} from 'disqus-react'
 import {buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 import PortableText from './portableText'
@@ -40,7 +40,7 @@ function BlogPost (props) {
                     shortname='blog-dkdev-ru'
                     config={
                       {
-                        url: `${window.location.origin}${location.pathname}`,
+                        url: `${location.origin}${location.pathname}`,
                         identifier: slug.current,
                         title: title,
                         language: 'ru_RU'

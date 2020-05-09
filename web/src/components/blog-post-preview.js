@@ -2,16 +2,18 @@ import {parseISO, format} from 'date-fns'
 import {ru} from 'date-fns/locale'
 import {Link} from 'gatsby'
 import React from 'react'
+import {Location} from '@reach/router'
+import {CommentCount} from 'disqus-react'
+
 import {buildImageObj, cn, getBlogUrl} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 import PortableText from './portableText'
 
 import styles from './blog-post-preview.module.css'
 import {responsiveTitle3} from './typography.module.css'
-import {CommentCount} from "disqus-react";
 
 function BlogPostPreview (props) {
-  const postUrl = getBlogUrl(props.publishedAt, props.slug.current);
+  const postUrl = getBlogUrl(props.publishedAt, props.slug.current)
   return (
     <Link
       className={props.isInList ? styles.inList : styles.inGrid}
@@ -38,18 +40,22 @@ function BlogPostPreview (props) {
         )}
         <div className={styles.footer}>
           {format(parseISO(props.publishedAt), 'd MMMM yyyy', {locale: ru})}
-          <CommentCount
-            shortname='blog-dkdev-ru'
-            config={
-              {
-                url: `${window.location.origin}${postUrl}`,
-                identifier: props.slug.current,
-                title: props.title
-              }
-            }
-          >
-            Комментарии
-          </CommentCount>
+          <Location>
+            {({location}) => (
+              <CommentCount
+                shortname='blog-dkdev-ru'
+                config={
+                  {
+                    url: `${location.origin}${postUrl}`,
+                    identifier: props.slug.current,
+                    title: props.title
+                  }
+                }
+              >
+                Комментарии
+              </CommentCount>
+            )}
+          </Location>
         </div>
       </div>
     </Link>
