@@ -33,6 +33,17 @@ function BlogPost (props) {
           <div className={styles.mainContent}>
             <h1 className={styles.title}>{title}</h1>
             {_rawBody && <PortableText blocks={_rawBody} />}
+            <hr />
+            <div>
+              К сожалению, бесплатной платформы для комментариев без рекламы я не нашел.
+              Предлагаю вам решить пролему на вашей стороне – поставьте uBlock Origin.
+            </div>
+            <div>
+              Ссылки:
+              для <a href='https://addons.mozilla.org/nl/firefox/addon/ublock-origin/'>FireFox</a>,
+              для <a href='https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm'>Chrome</a>,
+              для недоверчивых <a href='https://github.com/gorhill/uBlock'>GitHub</a>.
+            </div>
             <Location>
               {
                 ({location}) => (
